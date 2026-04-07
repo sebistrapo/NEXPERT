@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexpert — Aprende Inglés</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- ======= NAV ======= -->
+<nav>
+  <div class="nav-logo" onclick="showPage('home')">🧠 Nexpert</div>
+  <div class="nav-links">
+    <button class="nav-link" onclick="showPage('lecciones')">Lecciones</button>
+    <button class="nav-link" onclick="showPage('practica')">Práctica</button>
+    <button class="nav-link" onclick="showPage('ranking')">Ranking</button>
+  </div>
+</nav>
+
+<!-- ============ HOME ============ -->
+<div id="home-page" class="page active">
+  <div class="hero">
+    <span class="float-emoji fe1">📚</span>
+    <span class="float-emoji fe2">✏️</span>
+    <span class="float-emoji fe3">⭐</span>
+    <span class="float-emoji fe4">🎯</span>
+    <div class="hero-badge">🚀 APRENDE INGLÉS DE FORMA DIVERTIDA</div>
+    <h1>Domina el inglés con <span>Nexpert</span></h1>
+    <p>Ejercicios interactivos, vocabulario y quizzes. Aprende a tu ritmo, todos los días.</p>
+    <div class="hero-btns">
+      <button class="btn-hero btn-primary" onclick="showPage('lecciones')">🎮 Comenzar ahora</button>
+    </div>
+  </div>
+
+  <div class="stats-bar">
+    <div class="stat-item"><span class="stat-num">500+</span><span class="stat-label">EJERCICIOS</span></div>
+    <div class="stat-item"><span class="stat-num">5</span><span class="stat-label">NIVELES</span></div>
+    <div class="stat-item"><span class="stat-num">1200+</span><span class="stat-label">ESTUDIANTES</span></div>
+    <div class="stat-item"><span class="stat-num">100%</span><span class="stat-label">GRATIS</span></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">¿Qué aprenderás?</div>
+    <div class="section-sub">Todo lo que necesitas para hablar inglés con confianza</div>
+    <div class="cards-grid">
+      <div class="card" onclick="showPage('lecciones')">
+        <div class="card-icon">📖</div>
+        <div class="card-title">Lecciones estructuradas</div>
+        <div class="card-desc">Desde saludos básicos hasta gramática avanzada. Cada lección incluye vocabulario, ejemplos y práctica.</div>
+        <span class="card-tag">5 unidades · 40 lecciones</span>
+      </div>
+      <div class="card" onclick="showPage('practica')">
+        <div class="card-icon">🎯</div>
+        <div class="card-title">Práctica diaria</div>
+        <div class="card-desc">Quizzes, ejercicios de fill-in-the-blank, traducción y más. Practica lo que aprendes cada día.</div>
+        <span class="card-tag">6 tipos de ejercicio</span>
+      </div>
+      <div class="card" onclick="showPage('ranking')">
+        <div class="card-icon">🏆</div>
+        <div class="card-title">Ranking semanal</div>
+        <div class="card-desc">Compite con otros estudiantes, mantén tu racha y gana XP. ¡Sube al top del ranking!</div>
+        <span class="card-tag">Liga semanal</span>
+      </div>
+      <div class="card">
+        <div class="card-icon">🔥</div>
+        <div class="card-title">Rachas motivadoras</div>
+        <div class="card-desc">Practica todos los días y mantén tu racha activa. ¡Los mejores estudiantes tienen rachas de 30+ días!</div>
+        <span class="card-tag">Tu racha: 0 días</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="daily-goal-section">
+    <div class="section" style="padding:0;">
+      <div class="section-title">Tu progreso hoy</div>
+      <div class="section-sub">Completa tu meta diaria y gana XP extra</div>
+      <div class="daily-goal-card">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+          <span style="font-weight:800;">Meta diaria</span>
+          <span style="font-family:'Fredoka One',cursive; color: var(--green1);">0 / 20 XP</span>
+        </div>
+        <div class="progress-wrap"><div class="progress-fill" style="width:0%"></div></div>
+        <button class="start-lesson-btn" style="margin-top:20px; font-size:1.1rem;" onclick="showPage('lecciones')">
+          🚀 Empezar lección del día
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ LECCIONES ============ -->
+<div id="lecciones-page" class="page">
+  <div class="lessons-hero">
+    <h2>📖 Lecciones</h2>
+    <p>Aprende inglés paso a paso desde cero hasta el nivel avanzado</p>
+  </div>
+
+  <div class="levels-nav">
+    <button class="level-btn active" onclick="filterLevel(this,'A1')">🌱 A1 Básico</button>
+    <button class="level-btn" onclick="filterLevel(this,'A2')">🌿 A2 Elemental</button>
+    <button class="level-btn" onclick="filterLevel(this,'B1')">🌳 B1 Intermedio</button>
+    <button class="level-btn" onclick="filterLevel(this,'B2')">🚀 B2 Avanzado</button>
+    <button class="level-btn" onclick="filterLevel(this,'C1')">⭐ C1 Expert</button>
+  </div>
+
+  <div class="lesson-list" id="lesson-list-container">
+    <!-- Units rendered by lessons.js -->
+  </div>
+</div>
+
+<!-- ============ LESSON DETAIL ============ -->
+<div id="lesson-detail-page" class="page">
+  <div id="lesson-detail-content" style="max-width:800px; margin:0 auto; padding:40px 30px 80px;">
+  </div>
+</div>
+
+<!-- ============ PRÁCTICA ============ -->
+<div id="practica-page" class="page">
+  <div class="practica-hero">
+    <h2>🎯 Práctica</h2>
+    <p>Refuerza lo que aprendiste con ejercicios interactivos y desafíos diarios</p>
+  </div>
+
+  <div class="section">
+    <div class="section-title" style="margin-bottom:24px;">Elige cómo practicar</div>
+    <div class="practica-grid" id="practica-grid">
+      <!-- Cards rendered by practica.js -->
+    </div>
+
+    <div style="margin-top: 48px;">
+      <div class="section-title" style="margin-bottom:20px;">⚡ Desafío diario</div>
+      <div class="daily-challenge-banner">
+        <div>
+          <div class="daily-challenge-title">Vocabulario de Animales 🦁</div>
+          <div style="opacity:.9; font-weight:600;">10 preguntas · Gana 50 XP extra hoy</div>
+          <div class="daily-challenge-timer">Expira en: 18h 32m</div>
+        </div>
+        <button class="btn-hero btn-primary" onclick="startQuiz('multiple')" style="white-space:nowrap;">¡Aceptar desafío!</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ QUIZ ============ -->
+<div id="quiz-page" class="page">
+  <div style="max-width:640px; margin:0 auto; padding:40px 24px 80px;">
+    <button class="back-btn" onclick="showPage('practica')">← Volver a Práctica</button>
+    <div id="quiz-content"></div>
+  </div>
+</div>
+
+<!-- ============ RANKING ============ -->
+<div id="ranking-page" class="page">
+  <div class="ranking-hero">
+    <h2>🏆 Ranking</h2>
+    <p>¡Compite con otros estudiantes y sube al top!</p>
+  </div>
+  <div class="ranking-section" id="ranking-section">
+    <!-- Rendered by ranking.js -->
+  </div>
+</div>
+
+<!-- Scripts: data primero, luego lógica -->
+<script src="data/lessons-data.js"></script>
+<script src="data/quiz-data.js"></script>
+<script src="js/navigation.js"></script>
+<script src="js/lessons.js"></script>
+<script src="js/quiz.js"></script>
+<script src="js/practica.js"></script>
+<script src="js/ranking.js"></script>
+<script>
+  // Inicializar app
+  showPage('home');
+  renderLessons('A1');
+  renderPractica();
+  renderRanking();
+</script>
+</body>
+</html>
